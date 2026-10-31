@@ -1,0 +1,154 @@
+@font-face{font-family:Jost;font-weight:300;font-display:swap;src:url(fonts/jost-latin-300-normal.woff2) format("woff2")}
+@font-face{font-family:Jost;font-weight:400;font-display:swap;src:url(fonts/jost-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:Jost;font-weight:500;font-display:swap;src:url(fonts/jost-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:Jost;font-weight:600;font-display:swap;src:url(fonts/jost-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Playfair Display";font-style:italic;font-weight:700;font-display:swap;src:url(fonts/playfair-display-latin-700-italic.woff2) format("woff2")}
+@font-face{font-family:"Space Mono";font-weight:400;font-display:swap;src:url(fonts/space-mono-latin-400-normal.woff2) format("woff2")}
+
+:root{
+  --bordeaux:#3B1519;
+  --tief:#270C0F;
+  --creme:#F5ECDD;
+  --karte:#EBDFCA;
+  --orange:#E09950;
+  --sek-hell:#6B1A2E;
+  --sek-dunkel:#D9C9B0;
+  --rand:clamp(16px,6vw,96px);
+  --linie:rgba(59,21,25,.3);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bordeaux);color:var(--creme);font-family:Jost,sans-serif;font-weight:400;overflow-x:clip}
+img,svg{display:block}
+a{color:inherit}
+a:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+h1,h2,h3,p,ul{margin:0}
+ul{padding:0;list-style:none}
+.mono{font-family:"Space Mono",monospace}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+/* Glitzer */
+.g{position:absolute;top:0;right:0;bottom:0;width:max(62%,560px);background:url(glitzer.webp) no-repeat right top/100% auto;pointer-events:none}
+.g1{animation:drift 16s ease-in-out infinite}
+.g2{opacity:0;transform:scaleY(-1);background-position:right bottom;animation:twinkle 9s ease-in-out infinite}
+.gs{position:absolute;top:0;right:0;bottom:0;width:max(56%,520px);background:url(glitzer.webp) no-repeat right top/100% auto;pointer-events:none;opacity:.55;animation:drift2 18s ease-in-out infinite}
+.gs-flip{transform:scaleY(-1)}
+@keyframes drift{0%,100%{transform:translate3d(0,0,0);opacity:.85}50%{transform:translate3d(-18px,14px,0);opacity:1}}
+@keyframes twinkle{0%,100%{opacity:0}50%{opacity:.55}}
+@keyframes drift2{0%,100%{opacity:.4}50%{opacity:.65}}
+
+/* Titelbereich */
+.hero{position:relative;overflow:hidden}
+.hero-in{position:relative;display:flex;flex-direction:column;gap:clamp(16px,2vw,32px);padding:clamp(40px,6vw,88px) 0 clamp(72px,11vw,168px) var(--rand)}
+.claim{padding-right:var(--rand);font-weight:300;font-size:clamp(24px,3vw,44px);line-height:1.2;letter-spacing:.01em}
+.hero-logo{width:min(94%,1100px);height:auto}
+.tage{white-space:nowrap;margin-left:-.04em;font-weight:300;font-size:clamp(80px,25vw,420px);line-height:.82;letter-spacing:-.02em}
+.monat{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 48px;padding-right:var(--rand)}
+.monat strong{font-family:"Playfair Display",serif;font-style:italic;font-weight:700;font-size:clamp(44px,6vw,96px);line-height:1.05;color:var(--orange)}
+.monat span{font-family:"Space Mono",monospace;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:var(--sek-dunkel)}
+.zeiten{display:flex;flex-wrap:wrap;gap:24px 64px;margin-top:16px;padding-right:var(--rand)}
+.zeit{display:flex;flex-direction:column;gap:4px;padding-top:14px;border-top:1px solid var(--orange)}
+.zeit b{font-family:"Space Mono",monospace;font-weight:400;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--orange)}
+.zeit span{font-weight:300;font-size:clamp(44px,5vw,76px);line-height:1}
+.zeit small{font-family:"Space Mono",monospace;font-size:.3em;color:var(--orange)}
+
+/* Band */
+.band{overflow:hidden;padding:16px 0;background:var(--tief);border-top:1px solid var(--creme)}
+.band-in{display:flex;width:max-content;font-weight:300;font-size:15px;letter-spacing:.32em;white-space:nowrap;animation:scroll 70s linear infinite}
+.band-in span{padding-right:36px}
+.band-in i{font-family:"Space Mono",monospace;font-style:normal;color:var(--orange);padding-right:36px}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* Abschnitte */
+.abschnitt{position:relative;overflow:hidden;padding:clamp(64px,8vw,120px) var(--rand) clamp(24px,3vw,48px)}
+.abschnitt-in{position:relative;display:flex;flex-direction:column;gap:40px}
+.titel{font-weight:600;font-size:clamp(48px,8vw,128px);line-height:.92;letter-spacing:-.03em;text-transform:uppercase}
+
+/* Kunstorte */
+.orte{display:flex;flex-wrap:wrap;gap:24px}
+.karte{flex:2 1 480px;min-width:0;display:flex;flex-direction:column;background:var(--karte);color:var(--bordeaux)}
+.karte svg{flex:1 1 auto;width:100%;height:auto;aspect-ratio:1;min-height:0}
+.karte p{padding:8px 12px;font-family:"Space Mono",monospace;font-size:12px;color:var(--sek-hell)}
+.ortliste{flex:1 1 320px;min-width:0;display:flex;flex-direction:column;background:var(--creme);color:var(--bordeaux)}
+.loc{flex:1 1 auto;display:flex;gap:16px;align-items:flex-start;padding:18px 20px;border-top:1px solid var(--linie);transition:background-color .2s ease,color .2s ease}
+.loc:first-child{border-top:0}
+.mk{flex:none;display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:var(--bordeaux);color:var(--creme);font-weight:600;font-size:20px;transition:background-color .2s ease,color .2s ease}
+.loc-text{display:flex;flex-direction:column;gap:4px;min-width:0}
+.loc-name{font-size:24px;font-weight:600;line-height:1.15;text-transform:uppercase;letter-spacing:.02em}
+.adr{font-family:"Space Mono",monospace;font-size:14px;line-height:1.5}
+.sub{color:var(--sek-hell)}
+.route{align-self:flex-start;padding:12px 0;font-size:14px;letter-spacing:.1em;text-transform:uppercase}
+
+.hinweis{display:flex;gap:12px;align-items:flex-start;padding-top:14px;border-top:1px solid var(--orange)}
+.hinweis i{flex:none;display:flex;align-items:center;justify-content:center;width:28px;height:28px;background:var(--orange);color:var(--tief);font-style:normal;font-weight:600}
+.hinweis p{font-size:15px;line-height:1.5}
+.hinweis b{font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+
+/* Künstler */
+.kaesten{display:flex;flex-direction:column;gap:24px}
+.kasten{display:flex;flex-wrap:wrap;gap:24px 64px;padding:clamp(20px,3vw,48px);background:var(--creme);color:var(--bordeaux)}
+.kasten-ort{flex:1 1 260px;min-width:0;display:flex;flex-direction:column;gap:12px}
+.ziffer{font-weight:500;font-size:clamp(96px,11vw,168px);line-height:.85;letter-spacing:-.04em}
+.kasten h3{font-weight:600;font-size:30px;line-height:1.15;text-transform:uppercase}
+.kasten-ort .adr{color:var(--sek-hell)}
+.versorgung{margin-top:auto;padding-top:28px}
+.versorgung p{padding-top:14px;border-top:1px solid var(--linie);font-family:"Space Mono",monospace;font-size:15px;line-height:1.6;color:var(--sek-hell)}
+.versorgung .hinweis p{font-family:Jost,sans-serif;color:inherit}
+.versorgung .hinweis{border-top-color:var(--orange)}
+.versorgung .hinweis p{padding-top:0;border-top:0}
+.reihen{flex:3 1 480px;min-width:0;display:flex;flex-direction:column;border-bottom:1px solid var(--linie)}
+.row{position:relative;display:flex;align-items:center;gap:clamp(12px,2vw,24px);padding:14px 16px;border-top:1px solid var(--linie);transition:background-color .2s ease,color .2s ease}
+.thumb{flex:none;width:120px;height:120px;object-fit:cover;border:1px solid var(--bordeaux);background:var(--karte);transition:transform .25s ease}
+.name{min-width:0;font-weight:300;font-size:clamp(28px,4vw,60px);line-height:1.1;text-decoration:none}
+a.name::after{content:"";position:absolute;inset:0}
+
+@media (hover:hover){
+  .loc:hover,.row:hover{background:var(--bordeaux);color:var(--creme)}
+  .loc:hover .mk{background:var(--creme);color:var(--bordeaux)}
+  .loc:hover .sub{color:var(--orange)}
+  .row:hover .thumb{transform:rotate(-4deg) scale(1.08)}
+  .fl:hover{color:var(--orange)}
+}
+
+/* Projekttext */
+.projekt{padding:clamp(24px,3vw,48px) var(--rand) clamp(64px,8vw,120px)}
+.projekt div{padding:clamp(24px,5vw,72px);background:var(--creme);color:var(--bordeaux)}
+.projekt p{max-width:880px;font-weight:300;font-size:clamp(22px,2.8vw,40px);line-height:1.35}
+
+/* Fußzeile */
+.fuss{position:relative;overflow:hidden;padding:clamp(48px,6vw,88px) var(--rand) 40px;background:var(--tief)}
+.fuss-in{position:relative;display:flex;flex-direction:column;gap:48px}
+.fuss-oben{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px}
+.fuss-logo{width:min(100%,560px);height:auto}
+.fuss-oben p{font-family:"Space Mono",monospace;font-size:14px;line-height:1.7;color:var(--sek-dunkel)}
+.fuss-links{display:flex;flex-wrap:wrap;justify-content:space-between;gap:0 32px;padding-top:24px;border-top:1px solid rgba(245,236,221,.3);font-size:15px;letter-spacing:.1em;text-transform:uppercase}
+.fuss-links div{display:flex;flex-wrap:wrap;gap:0 32px}
+.fl{display:inline-block;padding:12px 0;text-decoration:none}
+
+/* Impressum, Datenschutz */
+.recht-kopf{padding:24px var(--rand)}
+.recht-kopf img{width:200px;height:auto}
+.recht{padding:clamp(24px,5vw,72px);margin:0 var(--rand) clamp(64px,8vw,120px);background:var(--creme);color:var(--bordeaux);font-size:18px;line-height:1.55}
+.recht h1{font-weight:600;font-size:clamp(36px,6vw,72px);line-height:1;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:32px}
+.recht h2{font-weight:600;font-size:22px;margin:32px 0 8px}
+.recht p{max-width:760px;margin-bottom:12px}
+.recht ul{max-width:760px;margin-bottom:12px;padding-left:20px;list-style:disc}
+
+@media (max-width:560px){
+  .kasten-ort{flex-basis:100%}
+  .reihen{flex-basis:100%}
+  .row{padding:12px 0}
+  .thumb{width:88px;height:88px}
+  .karte .lbl{display:none}
+  .g,.gs{width:100%;-webkit-mask-image:linear-gradient(to right,transparent 35%,#000 100%);mask-image:linear-gradient(to right,transparent 35%,#000 100%)}
+  .g2{display:none}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .g1,.g2,.gs,.band-in{animation:none}
+  .g2{opacity:.3}
+  .band{overflow-x:auto}
+  .loc,.mk,.row,.thumb{transition:none}
+}
