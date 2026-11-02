@@ -30,13 +30,10 @@ ul{padding:0;list-style:none}
 
 /* Glitzer */
 .g{position:absolute;top:0;right:0;bottom:0;width:max(62%,560px);background:url(glitzer.webp) no-repeat right top/100% auto;pointer-events:none}
-.g1{animation:drift 16s ease-in-out infinite}
-.g2{opacity:0;transform:scaleY(-1);background-position:right bottom;animation:twinkle 9s ease-in-out infinite}
-.gs{position:absolute;top:0;right:0;bottom:0;width:max(56%,520px);background:url(glitzer.webp) no-repeat right top/100% auto;pointer-events:none;opacity:.55;animation:drift2 18s ease-in-out infinite}
+.g1{opacity:.9}
+.g2{opacity:.3;transform:scaleY(-1);background-position:right bottom}
+.gs{position:absolute;top:0;right:0;bottom:0;width:max(56%,520px);background:url(glitzer.webp) no-repeat right top/100% auto;pointer-events:none;opacity:.55}
 .gs-flip{transform:scaleY(-1)}
-@keyframes drift{0%,100%{transform:translate3d(0,0,0);opacity:.85}50%{transform:translate3d(-18px,14px,0);opacity:1}}
-@keyframes twinkle{0%,100%{opacity:0}50%{opacity:.55}}
-@keyframes drift2{0%,100%{opacity:.4}50%{opacity:.65}}
 
 /* Titelbereich */
 .hero{position:relative;overflow:hidden}
@@ -147,8 +144,7 @@ a.name::after{content:"";position:absolute;inset:0}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .g1,.g2,.gs,.band-in{animation:none}
-  .g2{opacity:.3}
+  .band-in{animation:none}
   .band{overflow-x:auto}
   .loc,.mk,.row,.thumb{transition:none}
 }
