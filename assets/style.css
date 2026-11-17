@@ -165,3 +165,6 @@ a.name::after{content:"";position:absolute;inset:0}
   .band{overflow-x:auto}
   .loc,.mk,.row,.thumb{transition:none}
 }
+a.ortlink{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.15em}
+a.ortlink:hover{text-decoration-thickness:2px}
+.loc-text a.ortlink{align-self:flex-start}
