@@ -35,13 +35,20 @@ ul{padding:0;list-style:none}
 .gs{position:absolute;top:0;right:0;bottom:0;width:max(56%,520px);background:url(glitzer.webp) no-repeat right top/100% auto;pointer-events:none;opacity:.55}
 .gs-flip{transform:scaleY(-1)}
 
+/* Kopfzeile */
+.kopf{position:relative;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px var(--rand) 0}
+.kopf-logo img{width:clamp(120px,14vw,200px);height:auto}
+.kopf ul{display:flex;gap:clamp(16px,2.5vw,40px)}
+.kopf ul a{font-size:14px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--creme)}
+.kopf ul a:hover{color:var(--orange)}
+
 /* Titelbereich */
 .hero{position:relative;overflow:hidden}
 /* --s: Maßeinheit des Titelbereichs. Hochkant = 1vw. Im Querformat zusätzlich durch die Fensterhöhe begrenzt,
    damit alles bis einschließlich Band in ein Fenster passt. */
 :root{--s:1vw;--min-gap:16px;--min-top:40px;--min-bot:72px;--min-claim:24px;--min-monat:44px;--min-zeit:44px}
 @media (orientation:landscape){
-  :root{--s:min(1vw,calc((100svh - 150px) / 82));--min-gap:10px;--min-top:24px;--min-bot:36px;--min-claim:18px;--min-monat:28px;--min-zeit:28px}
+  :root{--s:min(1vw,calc((100svh - 215px) / 82));--min-gap:10px;--min-top:24px;--min-bot:36px;--min-claim:18px;--min-monat:28px;--min-zeit:28px}
 }
 .hero-in{position:relative;display:flex;flex-direction:column;gap:clamp(var(--min-gap),calc(var(--s)*2),32px);padding:clamp(var(--min-top),calc(var(--s)*6),88px) 0 clamp(var(--min-bot),calc(var(--s)*11),168px) var(--rand)}
 .claim{padding-right:var(--rand);font-weight:300;font-size:clamp(var(--min-claim),calc(var(--s)*3),44px);line-height:1.2;letter-spacing:.01em}
@@ -139,6 +146,9 @@ a.name::after{content:"";position:absolute;inset:0}
 .recht ul{max-width:760px;margin-bottom:12px;padding-left:20px;list-style:disc}
 
 @media (max-width:560px){
+  .kopf-logo{display:none}
+  .kopf ul{gap:20px}
+  .kopf ul a{font-size:13px;letter-spacing:.1em}
   .kasten-ort{flex-basis:100%}
   .reihen{flex-basis:100%}
   .row{padding:12px 0}
