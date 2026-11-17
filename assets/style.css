@@ -37,17 +37,23 @@ ul{padding:0;list-style:none}
 
 /* Titelbereich */
 .hero{position:relative;overflow:hidden}
-.hero-in{position:relative;display:flex;flex-direction:column;gap:clamp(16px,2vw,32px);padding:clamp(40px,6vw,88px) 0 clamp(72px,11vw,168px) var(--rand)}
-.claim{padding-right:var(--rand);font-weight:300;font-size:clamp(24px,3vw,44px);line-height:1.2;letter-spacing:.01em}
-.hero-logo{width:min(94%,1100px);height:auto}
-.tage{white-space:nowrap;margin-left:-.04em;font-weight:300;font-size:clamp(80px,25vw,420px);line-height:.82;letter-spacing:-.02em}
+/* --s: Maßeinheit des Titelbereichs. Hochkant = 1vw. Im Querformat zusätzlich durch die Fensterhöhe begrenzt,
+   damit alles bis einschließlich Band in ein Fenster passt. */
+:root{--s:1vw;--min-gap:16px;--min-top:40px;--min-bot:72px;--min-claim:24px;--min-monat:44px;--min-zeit:44px}
+@media (orientation:landscape){
+  :root{--s:min(1vw,calc((100svh - 150px) / 82));--min-gap:10px;--min-top:24px;--min-bot:36px;--min-claim:18px;--min-monat:28px;--min-zeit:28px}
+}
+.hero-in{position:relative;display:flex;flex-direction:column;gap:clamp(var(--min-gap),calc(var(--s)*2),32px);padding:clamp(var(--min-top),calc(var(--s)*6),88px) 0 clamp(var(--min-bot),calc(var(--s)*11),168px) var(--rand)}
+.claim{padding-right:var(--rand);font-weight:300;font-size:clamp(var(--min-claim),calc(var(--s)*3),44px);line-height:1.2;letter-spacing:.01em}
+.hero-logo{width:min(94%,1100px,calc(var(--s)*94));height:auto}
+.tage{white-space:nowrap;margin-left:-.04em;font-weight:300;font-size:clamp(64px,calc(var(--s)*25),420px);line-height:.82;letter-spacing:-.02em}
 .monat{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 48px;padding-right:var(--rand)}
-.monat strong{font-family:"Playfair Display",serif;font-style:italic;font-weight:700;font-size:clamp(44px,6vw,96px);line-height:1.05;color:var(--orange)}
+.monat strong{font-family:"Playfair Display",serif;font-style:italic;font-weight:700;font-size:clamp(var(--min-monat),calc(var(--s)*6),96px);line-height:1.05;color:var(--orange)}
 .monat span{font-family:"Space Mono",monospace;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:var(--sek-dunkel)}
 .zeiten{display:flex;flex-wrap:wrap;gap:24px 64px;margin-top:16px;padding-right:var(--rand)}
 .zeit{display:flex;flex-direction:column;gap:4px;padding-top:14px;border-top:1px solid var(--orange)}
 .zeit b{font-family:"Space Mono",monospace;font-weight:400;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--orange)}
-.zeit span{font-weight:300;font-size:clamp(44px,5vw,76px);line-height:1}
+.zeit span{font-weight:300;font-size:clamp(var(--min-zeit),calc(var(--s)*5),76px);line-height:1}
 .zeit small{font-family:"Space Mono",monospace;font-size:.3em;color:var(--orange)}
 
 /* Band */
