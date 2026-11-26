@@ -7,6 +7,7 @@
 
 :root{
   --bordeaux:#3B1519;
+  --grund:#211114;
   --tief:#270C0F;
   --creme:#F5ECDD;
   --karte:#EBDFCA;
@@ -19,7 +20,7 @@
 
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-body{margin:0;background:var(--bordeaux);color:var(--creme);font-family:Jost,sans-serif;font-weight:400;overflow-x:clip}
+body{margin:0;background:var(--grund);color:var(--creme);font-family:Jost,sans-serif;font-weight:400;overflow-x:clip}
 img,svg{display:block}
 a{color:inherit}
 a:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
@@ -36,7 +37,7 @@ ul{padding:0;list-style:none}
 .gs-flip{transform:scaleY(-1)}
 
 /* Kopfzeile */
-.kopf{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px var(--rand);background:rgba(59,21,25,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.kopf{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px var(--rand);background:rgba(33,17,20,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 html{scroll-padding-top:72px}
 .kopf-logo img{width:clamp(120px,14vw,200px);height:auto}
 .kopf ul{display:flex;gap:clamp(16px,2.5vw,40px)}
